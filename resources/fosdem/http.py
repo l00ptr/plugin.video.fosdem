@@ -15,7 +15,6 @@ def get_video_list():
        xml_tree = ElementTree.fromstring(response.content)
        events = xml_tree.findall('.//event')
        for a_event in events:
-           #for print a_event.value
            room = a_event.find('room').text
            title = a_event.find('title').text
            track = a_event.find('track').text
@@ -29,7 +28,6 @@ def get_video_list():
                                       'fosdem',
                                       'video'])
               if is_valid_link:
-                  print a_link_href
                   video_list[slug] = {
 			              'room': room,
 	                              'title': title,
